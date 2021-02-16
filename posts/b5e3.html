@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="树莓派命令总结, 梵星">
+    <meta name="keywords" content="正则表达式, 梵星">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>树莓派命令总结 | 梵星</title>
+    <title>正则表达式 | 梵星</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -377,12 +377,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/42.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">树莓派命令总结</h1>
+                    <h1 class="description center-align post-title">正则表达式</h1>
                 </div>
             </div>
         </div>
@@ -404,8 +404,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%91%BD%E4%BB%A4/">
-                                <span class="chip bg-color">命令</span>
+                            <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                                <span class="chip bg-color">正则表达式</span>
                             </a>
                         
                     </div>
@@ -416,8 +416,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="post-category">
-                                树莓派
+                            <a href="/categories/Python/" class="post-category">
+                                Python
                             </a>
                         
                     </div>
@@ -429,21 +429,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-22
+                    2021-02-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-05
+                    2021-02-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    191
+                    235
                 </div>
                 
 
@@ -465,43 +465,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>ccd77a0a9ab39755ee22e124f7c43639808d2dd16720aa6dc30632de02d1a04a</p>
-<h4 id="一-基本命令"><a href="#一-基本命令" class="headerlink" title="一. 基本命令"></a>一. 基本命令</h4><pre class=" language-linux"><code class="language-linux">sudo raspi-config 系统设置命令
-sudo poweroff 关机
-sudo reboot  重启</code></pre>
-<h4 id="二-使用-pip-给指定版本的-Python-安装模块"><a href="#二-使用-pip-给指定版本的-Python-安装模块" class="headerlink" title="二. 使用 pip 给指定版本的 Python 安装模块"></a>二. 使用 pip 给指定版本的 Python 安装模块</h4><pre class=" language-linux"><code class="language-linux">查看版本
-pip -V    注意: 是大写的V
-pip2 -V
-pip3 -V
+                <pre class=" language-python"><code class="language-python"><span class="token punctuation">.</span>     <span class="token comment" spellcheck="true">#全部字符</span>
 
-通过pip给指定python版本安装
-sudo pip2 install 模块名
-或
-python2 -m pip install 模块名
+\w    <span class="token comment" spellcheck="true">#匹配阿拉伯数字, 英文大小写字母, 下划线</span>
+\W    <span class="token comment" spellcheck="true">#  \w取反</span>
 
-sudo pip3 install 模块名
-或
-python3 -m pip install 模块名
+\d    <span class="token comment" spellcheck="true"># 匹配数字</span>
+\D    <span class="token comment" spellcheck="true"># 匹配不是数字的</span>
 
-卸载
-sudo pip uninstall 模块名 </code></pre>
-<h3 id="三-修改pip源"><a href="#三-修改pip源" class="headerlink" title="三. 修改pip源"></a>三. 修改pip源</h3><pre class=" language-linux"><code class="language-linux">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/</code></pre>
-<h3 id="四-国内源"><a href="#四-国内源" class="headerlink" title="四. 国内源"></a>四. 国内源</h3><pre class=" language-linux"><code class="language-linux"># 豆瓣
-https://pypi.doubanio.com/simple/
-# 阿里云    
-https://mirrors.aliyun.com/pypi/simple/
-# 清华大学
-https://pypi.tuna.tsinghua.edu.cn/simple/
-https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/</code></pre>
-<h3 id="五-查看linux是几位"><a href="#五-查看linux是几位" class="headerlink" title="五. 查看linux是几位"></a>五. 查看linux是几位</h3><pre class=" language-linux"><code class="language-linux">getconf LONG_BIT</code></pre>
-<h3 id="六-摄像头配置"><a href="#六-摄像头配置" class="headerlink" title="六. 摄像头配置"></a>六. 摄像头配置</h3><pre class=" language-linux"><code class="language-linux">1. 升级固件
-$ sudo apt-get update
-$ sudo apt-get upgrade 
+\s    <span class="token comment" spellcheck="true">#匹配空格, 制表符, 断行, 即空白字符</span>
 
-2. 配置
-$ sudo raspi-config
+<span class="token punctuation">[</span>范围<span class="token punctuation">]</span>    <span class="token comment" spellcheck="true">#整个括号表一个字符, 括号内是可能出现的字符, 范围</span>
+          <span class="token comment" spellcheck="true">#例 [abc]  会匹配abc a acc  </span>
+          <span class="token comment" spellcheck="true">#    [a-z]  匹配 a 到 z之间的字符(包含本身)</span>
+          <span class="token comment" spellcheck="true">#  [e-o] 同理</span>
+           <span class="token comment" spellcheck="true"># [1-4] 同理</span>
+          <span class="token comment" spellcheck="true"># [\u4e00-\u9fa5]  所有中文</span>
+<span class="token punctuation">[</span>范围<span class="token punctuation">]</span><span class="token operator">+</span>   <span class="token comment" spellcheck="true">#(加号前面一个字符, []表一个字符) 重复一次或多次, yo+   匹配 yo  yooo  yooo...</span>
+        <span class="token comment" spellcheck="true"># [yY][oO]+   匹配yo   yoooo   Yo  YOOO</span>
+<span class="token punctuation">[</span>范围<span class="token punctuation">]</span><span class="token operator">*</span>  <span class="token comment" spellcheck="true">#出现0次, 或多次</span>
 
-3. </code></pre>
+<span class="token punctuation">[</span>范围<span class="token punctuation">]</span>?  <span class="token comment" spellcheck="true">#出现0次或1次</span>
+
+<span class="token punctuation">{</span>a<span class="token punctuation">,</span>b<span class="token punctuation">}</span>  <span class="token comment" spellcheck="true">#重复至少a到b次  </span>
+       <span class="token comment" spellcheck="true"># yo{2,4}  匹配yo  o重复2~4次   yoo   yooo yooooo</span>
+      <span class="token comment" spellcheck="true"># yo{2,4}\b  只匹配yoo  yooo yoooo  不匹配yoooo...    yo</span>
+      <span class="token comment" spellcheck="true"># yo{0,} 0次或多次 </span>
+<span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 分组   $1 第一组</span>
+
+</code></pre>
+<p>在线练习正则网站</p>
+<p><a target="_blank" rel="noopener" href="https://regex101.com/">regex101</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.debuggex.com/">debuggex</a></p>
+<p><a target="_blank" rel="noopener" href="https://regexr.com/">regexr</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mW411i7C4?p=1">学习网站</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
                 
             </div>
@@ -528,7 +525,7 @@ $ sudo raspi-config
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Crowm7.github.io/posts/ed3a.html">http://Crowm7.github.io/posts/ed3a.html</a>
+                    <a href="http://Crowm7.github.io/posts/b5e3.html">http://Crowm7.github.io/posts/b5e3.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,8 +563,8 @@ $ sudo raspi-config
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%91%BD%E4%BB%A4/">
-                                    <span class="chip bg-color">命令</span>
+                                <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                                    <span class="chip bg-color">正则表达式</span>
                                 </a>
                             
                         </div>
@@ -734,46 +731,48 @@ $ sudo raspi-config
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/d70a.html">
+                <a href="/posts/b5e3.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/14.jpg" class="responsive-img" alt="翻译感悟">
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/12.jpg" class="responsive-img" alt="正则表达式">
                         
-                        <span class="card-title">翻译感悟</span>
+                        <span class="card-title">正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            阅读当中的翻译感悟
+                            正则表达式
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/English/" class="post-category">
-                                    English
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BF%BB%E8%AF%91/">
-                        <span class="chip bg-color">翻译</span>
+                    <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="chip bg-color">正则表达式</span>
                     </a>
                     
                 </div>
@@ -787,24 +786,24 @@ $ sudo raspi-config
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/d430.html">
+                <a href="/posts/77df.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/5.jpg" class="responsive-img" alt="连读规则">
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/6.jpg" class="responsive-img" alt="单词创句">
                         
-                        <span class="card-title">连读规则</span>
+                        <span class="card-title">单词创句</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            连读规则
+                            简介
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-11
                             </span>
                         <span class="publish-author">
                             
@@ -814,21 +813,9 @@ $ sudo raspi-config
                                     English
                                 </a>
                             
-                            <a href="/categories/%E5%8F%A3%E8%AF%AD/" class="post-category">
-                                    口语
-                                </a>
-                            
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%BF%9E%E8%AF%BB/">
-                        <span class="chip bg-color">连读</span>
-                    </a>
-                    
                 </div>
                 
             </div>

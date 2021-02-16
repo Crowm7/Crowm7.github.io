@@ -436,14 +436,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-26
+                    2021-02-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    448
+                    546
                 </div>
                 
 
@@ -479,11 +479,19 @@
 <li>git commit -m “描述”</li>
 <li>git push -u origin master </li>
 </ol>
+<p>图：</p>
+<p><img src="https://gitee.com/crowm01/cdn/raw/master/cdn/source/medias/reward/image-20210216190747575.png" alt="image-20210216190747575"></p>
 <p>创建空文件夹  进入文件夹, git init  (初始化)  –生成不可见的.git文件</p>
 <p>git status  获取状态</p>
 <p>将文件送至暂存区  git add git01.txt</p>
 <p>git commit -m ‘提交说明’  必须先放在暂缓区, 才能使用此语句</p>
-<p>git log  查看提交日志</p>
+<p>git log  查看提交日志(后悔药)</p>
+<p>git log -p  查看具体修改了一些什么</p>
+<p>git log  - -all  - -graph  图示全部历史记录 </p>
+<p>git checkout  ID(前七位)  回退到该版本的状态</p>
+<p>git tag  -a 标签名 -m”备注” ID  给特定后悔药添加标签, ID不写, 默认最新的后悔药</p>
+<p>三种状态</p>
+<p><img src="https://gitee.com/crowm01/cdn/raw/master/cdn/source/medias/reward/image-20210216171016111.png" alt="image-20210216171016111"></p>
 <p>git diff  HEAD – git.txt   比较仓库与工作区的区别</p>
 <p>git rest HEAD test.txt  从暂存区撤销test.txt</p>
 <p>git reset –hard HEAD^ 回退上一个版本,  </p>
@@ -510,15 +518,19 @@
 <p>克隆别人的代码到自己指定的目录</p>
 <p>git clone 地址</p>
 <p>git ls-file</p>
-<p>git remote add origin 网址  绑定远程仓库的地址</p>
-<p>git push -u origin master </p>
+<p>git remote add 名称 网址  绑定远程仓库的地址</p>
+<p>git push -u 远程名 master（分支） </p>
 <p>分支操作</p>
 <p>git branch 查看所有分支</p>
 <p>git checkout 切换分支</p>
 <p>git checkout - b新建并切换分支</p>
 <p>git checkout -d删除分支</p>
 <p>git checkout -m重命名</p>
-<p>git merge iss53在主干上合并新建分支</p>
+<p>git merge 分支名    在主干上合并新建分支</p>
+<p>分支图示</p>
+<p><img src="https://gitee.com/crowm01/cdn/raw/master/cdn/source/medias/reward/image-20210216183940174.png" alt="image-20210216183940174"></p>
+<p>学习视频</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1iW411t7EN?p=1">git教程</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
                 
             </div>
@@ -954,7 +966,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.9k</span>&nbsp;字
+                class="white-color">42.3k</span>&nbsp;字
             
             
             
