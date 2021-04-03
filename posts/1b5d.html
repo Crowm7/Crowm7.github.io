@@ -1,0 +1,1436 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Zigbee-IAR配置, 梵星">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Zigbee-IAR配置 | 梵星</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+	<link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
+   
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url( https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/background.jpg );
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">梵星</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>导航</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">梵星</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			ArtiTalk
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:28px" ></i>
+			      
+		          <span>导航</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:50px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:28px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/44.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Zigbee-IAR配置</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/IAR%E9%85%8D%E7%BD%AE/">
+                                <span class="chip bg-color">IAR配置</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Zigbee/" class="post-category">
+                                Zigbee
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-04-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一-安装注意"><a href="#一-安装注意" class="headerlink" title="一.安装注意"></a>一.安装注意</h2><ol>
+<li>右键管理员身份运行注册机</li>
+<li>更改安装路径, 尽量不要安装在C盘</li>
+</ol>
+<h2 id="二-新建工程"><a href="#二-新建工程" class="headerlink" title="二. 新建工程"></a>二. 新建工程</h2><ol>
+<li><p>打开IAR集成开发环境，单击菜单栏的Project,在弹出的下拉菜单中选择Create New<br>Project</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Android/image-20210323120217494.png" alt="image-20210323120217494"></p>
+</li>
+<li><p>在弹出窗口选中Emptyproject再点OK,如下图:</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120335413.png" alt="image-20210323120335413"></p>
+</li>
+<li><p>选择保存工程的位置和工程名: .</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120419212.png" alt="image-20210323120419212"></p>
+</li>
+<li><p>选择菜单栏上的File， 在弹出的下拉菜单中选择Save Workspace。在弹 出的Save<br>Workspace As 对话框中选择保存的位置，输入文件名即可，保存Workspace.</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120512198.png" alt="image-20210323120512198"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120541619.png" alt="image-20210323120541619"></p>
+<h2 id="三-建立源文件"><a href="#三-建立源文件" class="headerlink" title="三.建立源文件"></a>三.建立源文件</h2><ol>
+<li><p>新建源文件，点击File选择New中File，再点击File选择Save填写好源文件的名称，点击保存即可。</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120644131.png" alt="image-20210323120644131"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120708272.png" alt="image-20210323120708272"></p>
+<ol start="2">
+<li><p>源文件建立好了还需要把源文件添加到工程里面，选择project的Add File,添加刚才保存的文件。比如我刚才保存为main. c，在弹出的对话框选择main.c即可，然后点击打开。这时，发现左边框里面出现了我们添加的文件，说明添加成功。如果想删除文件怎么办?在Workspace中选择main. c,然后右键选择Remove,删除源文件;源文件这时候只是在工程中被移除了，并没有被真正删除掉，如果不需要，必须在保存的文件夹里面手动删除。添加文件也有快捷方式，在工程名上点右键，选择Add.如下图:</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120831348.png" alt="image-20210323120831348"></p>
+</li>
+</ol>
+<h2 id="四-工程配置"><a href="#四-工程配置" class="headerlink" title="四. 工程配置"></a>四. 工程配置</h2><p>IAR集成了许多种处理器，在建立工程后必须对工程进行设置才能够开发出相应的程序。设置步骤如”下:</p>
+<ol>
+<li><p>点击菜单栏 上的Project,在弹出的下拉菜单中选择Options,弹出的Option for node “Led”,快捷方式:在工程名上点右键，选择Options…。设置窗口如下图所示:</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323120952622.png" alt="image-20210323120952622"></p>
+</li>
+<li><p>设置相关参数。在General Option选项Target标签下，Device 栏中选择Texas Instruments文件夹下的CC2530F256.i51</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121049474.png" alt="image-20210323121049474"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121109567.png" alt="image-20210323121109567"></p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121132146.png" alt="image-20210323121132146"></p>
+<ol start="3">
+<li><p>设置Codemodel、Data model、Calling convention如下图所示:</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121229840.png" alt="image-20210323121229840"></p>
+</li>
+<li><p>选择Code model</p>
+<ul>
+<li><p>在Code model选项中有Near和Banked两种选择, Near如果不需要Bank支持可以选择Near,如cc2530F64,只需要访问64K flash.<br>Banked选择此项表明你需要更多的空间,能访问CC2530F256带个flash空间, </p>
+</li>
+<li><p>默认Near code model中的data model是smal, </p>
+</li>
+<li><p>默认的banked, data model是Large, data model是决定编译器或连接器如何使用8051的内存来存储变量,选择small data model,变典型的存储在DATA内存空间,如果全用Large data model变量存储在XDATA空间。</p>
+</li>
+<li><p>8051使用不同的指令来访问various memory spaces访问IDATA , -般情况下比仿真XDATA要快,但通常XDATA的空间比较IDATA要大。</p>
+</li>
+</ul>
+<p>在Stack/Heap标签，XDATA 文本框内设置为0x1FF </p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121642199.png" alt="image-20210323121642199"></p>
+</li>
+<li><p>Linker选项Config标签，勾选Override default， 点击下面对话框最右边的按键，选<br>lnk5lew_ cc2530F256_ banked. xcl</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121733533.png" alt="image-20210323121733533"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121755235.png" alt="image-20210323121755235"></p>
+<ol start="6">
+<li><p>Output标签选项主要用于设置输出文件以及格式,勾C-SPY-specificextraoutputfile。设置Extra Output如6-2所示:</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121918776.png" alt="image-20210323121918776"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323121937057.png" alt="image-20210323121937057"></p>
+<ol start="7">
+<li><p>Debugger栏中的Setup栏设置为Tesas Instruments</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323122020078.png" alt="image-20210323122020078"></p>
+</li>
+</ol>
+<p>是不是感觉工程设置很复杂呢?如果每个实验都要这么设置不是很累?我们现在只是教工程设置的方法而已,以后实际开发以一一个工程做模板,修改代码即可。</p>
+<h2 id="五-h与C文件配置"><a href="#五-h与C文件配置" class="headerlink" title="五.h与C文件配置"></a>五.h与C文件配置</h2><ol>
+<li>在已经创建好的IAR工程文件夹的<strong>上一级文件夹</strong>中新建一个文件lib（一定要用英文命名或数字），在lib文件里,创建命名为delay文件夹，是延时函数。</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123244747.png" alt="image-20210323123244747"></p>
+<ol start="2">
+<li><p>在此工程中打开IAR软件，添加两个新文件，右键保存到先前创建的delay文件夹中。文件名分别命名为delay.c和delay.h（必须为xxx.c和xxx.h，且文件名为英文字母或数字）</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123343878.png" alt="image-20210323123343878"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123411733.png" alt="image-20210323123411733"></p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123437598.png" alt="image-20210323123437598"></p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123510430.png" alt="image-20210323123510430"></p>
+<ol start="3">
+<li><p>在IAR左边工程栏中右键工程，选择add将delay文件夹中的.c和.h文件分别添加进工程。如下图：</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123551124.png" alt="image-20210323123551124"></p>
+</li>
+</ol>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123623307.png" alt="image-20210323123623307"></p>
+<ol start="4">
+<li><p>再次右键工程，打开Options…选择C/C++complier→Preprocessor，之后在Additional include directories空白栏中编写两行“$PROJ_DIR$\”，第二行后直接加最开始新建的文件夹名，我这里是delay。</p>
+<p><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/Zigbee/IAR/image-20210323123733955.png" alt="image-20210323123733955"></p>
+</li>
+<li><p>确定</p>
+</li>
+</ol>
+<h2 id="六-h路径配置问题"><a href="#六-h路径配置问题" class="headerlink" title="六..h路径配置问题"></a>六..h路径配置问题</h2><pre class=" language-txt"><code class="language-txt">一. $TOOLKIT_DIR$
+    这个语法表示包含文件的路径在IAR 安装路径的8051 文件夹下，也就是说如果IAR 安装在C 盘中，哪么它就表示C:\ProgramFiles\IAR Systems\Embedded Workbench 4.05 Evaluation version\8051 这个路径。
+
+二. $PROJ_DIR$
+    这个语法表示包含文件的路径在工程文件中，也就是和eww 文件和ewp 文件相同的目录。我们刚此建立的project 项目中，如果使用了这个语言，哪么就表示现在这个文件指向了C:\Documents andSettings\Administrator\桌面\project 这个文件夹。
+
+三. “\..”和“\文件夹名”
+    和这两个语言配合使用的还有两个很重要的符号，
+    \.. ：表示返回上一级文件夹\文件夹名：表示进入名为“文件夹名”的文件夹。
+四. 例子
+
+    $TOOLKIT_DIR$\inc\ 
+    这句话的意思是包含文件指向C:\Program Files\IARSystems\Embedded Workbench 4.05 Evaluation version\8051\inc。
+
+    $PROJ_DIR$\..\Source
+    这句话的意思是包含文件指向工程目录的上一级目录中的Source 文件夹中。例如：假设我们的工程放在D:\project\IAR 中，哪么$PROJ_DIR$\..\就将路径指向了D:\project中，再执行\Source，就表示将路径指向了D:\project\Source中。</code></pre>
+<h2 id="七-h文件和c文件的区别"><a href="#七-h文件和c文件的区别" class="headerlink" title="七. h文件和c文件的区别"></a>七. h文件和c文件的区别</h2><ul>
+<li><p>子程序不要定义在.h中。函数定义要放在.c中，而.h只做声明.否则多引用几次，就会发生函数重复定义的错误。</p>
+</li>
+<li><p>.h只做声明，编译后不产生代码</p>
+</li>
+<li><p>这样做目的是为了实现软件的模块化，使软件结构清晰，而且也便于别人使用你写的程序，纯粹用 C 语言语法的角度，你当然可以在 .h 中放任何东西，因为 <code>#include</code> 完全等价 于把 .h 文件 Ctrl-C Ctrl-V 到 .c 中,.h 中应该都是一些宏定义和变量、函数声明，告诉别人你的程序“能干什么、该怎么用”..c 中是所有变量和函数的定义，告诉计算机你的程序“该怎么实现”</p>
+</li>
+<li><p>当然，如果一个 .h 被多个 .c 包含,而且 .h 中有对象（变量或函数）的定义，就会发生重复定义的错误了.声明可以无穷多次，定义只能一次</p>
+</li>
+<li><p>一般来说，一个C文件应该是一个模块,如果你的程序仅仅有一个模块（仅仅一个C文件），就可以不用建立H文件了。否则你的模块肯定不是独立的，你的模块里面的实现要被别的模块调用。这个时候你最好生成一个头文件(H文件)，在头文件里面可以声明你的那些函数是公共的。当别的模块包含你的头文件后，就可以使用你的公共声明了。</p>
+</li>
+<li><p>一个C对应一个H，这样管理起来方便,比如你有一个”feed_dog.c”,那么就再添加一个”feed_dog.h”：</p>
+</li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">ifndef</span> _feed_dog_h#<span class="token directive keyword">define</span> _feed_dog_h</span>
+<span class="token keyword">extern</span> <span class="token keyword">void</span> <span class="token function">feed_dog</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span></code></pre>
+<p>其实在H文件里写函数也无所谓，只是不符合习惯而已。只要按照以上的格式写，一个H文件添加多少次都无所谓，</p>
+<ul>
+<li>只是一种约定,在编译器里面，.c和.h是没有区别的，.c和.h如何使用完全取决于程序员,不过为了你的程序以后还能看懂而且别人也能看懂,请遵守普遍的约定,这些约定前面的大虾们已经讲了很多了.这个就象汽车在马路上要靠右行使一样,是人为约定,汽车(编译器)本身并不知道自己是在靠左还是靠右行使.如果你喜欢,还可以用任意后缀命名源文件和头文件,但这样干可能会导致集成编译和调试环境罢工,你只好自己写makefile文件了.</li>
+<li>为了生成一个最终的可执行文件，就需要一些目标文件，也就是需要C文件，而这些C文件中又需要一个main.函数作为可执行程序的入口，那么我们就从一个C文件入手</li>
+</ul>
+<h2 id="八-参考文章"><a href="#八-参考文章" class="headerlink" title="八. 参考文章"></a>八. 参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f37ac5920c05">h文件和c文件的区别</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/269955134/answer/352536432">IAR如何创建一个头文件库？</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zsjalive/article/details/9362243?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-4.control&amp;dist_request_id=1328679.63486.16164698596974919&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-4.control">IAR包含文件的路径定义</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">梵星</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://Crowm7.github.io/posts/1b5d.html">http://Crowm7.github.io/posts/1b5d.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">梵星</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/IAR%E9%85%8D%E7%BD%AE/">
+                                    <span class="chip bg-color">IAR配置</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/b3eb.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/5.jpg" class="responsive-img" alt="Zigbee-I/O中断(二)">
+                        
+                        <span class="card-title">Zigbee-I/O中断(二)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Zigbee I/O中断
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Zigbee/" class="post-category">
+                                    Zigbee
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%B8%AD%E6%96%AD/">
+                        <span class="chip bg-color">中断</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/960f.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/21.jpg" class="responsive-img" alt="高数公式总结">
+                        
+                        <span class="card-title">高数公式总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一些常见的公式总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%AB%98%E6%95%B0/" class="post-category">
+                                    高数
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%AC%E5%BC%8F/">
+                        <span class="chip bg-color">公式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 梵星<br />'
+            + '文章作者: 梵星<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2021</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">梵星</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">63k</span>&nbsp;字
+            
+            
+            
+            
+            
+            <br>
+            
+            <br>
+            
+			
+			<script src='https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js'></script>
+			<script>
+				if (window.mermaid) {
+				  mermaid.initialize({theme: 'forest'});
+				}
+			</script>
+							
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/Crowm7" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1074775168@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1074775168" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1074775168" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+<div class="progress-bar"></div>
+
+		
+
+
+	
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+</body>
+
+</html>

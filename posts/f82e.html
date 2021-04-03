@@ -392,10 +392,104 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -448,14 +542,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-15
+                    2021-03-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    773
+                    776
                 </div>
                 
 
@@ -479,29 +573,28 @@
             <div id="articleContent">
                 <pre class=" language-flow"><code class="language-flow"><div id="flowchart-0" class="flow-chart"></div>
 </code></pre>
-<pre><code>st=&gt;start: 开始
-e=&gt;end: 结束
-op=&gt;operation: 我的操作
-cond=&gt;condition: 确认？
-
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op</code></pre>
-<div id="flowchart-1" class="flow-chart"></div>
+<pre class=" language-txt"><code class="language-txt">​<div id="flowchart-1" class="flow-chart"></div>
 
 
 
-<pre><code>st=&gt;start: Start:&gt;http://www.google.com[blank]
-e=&gt;end:&gt;http://www.google.com
-op1=&gt;operation: My Operation
-sub1=&gt;subroutine: My Subroutine
-cond=&gt;condition: Yes
-or No?:&gt;http://www.google.com
-io=&gt;inputoutput: catch something...
 
-st-&gt;op1-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op1
+
+<div id="flowchart-2" class="flow-chart"></div>
+
+
+
+```txt
+st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: Yes
+or No?:>http://www.google.com
+io=>inputoutput: catch something...
+
+st->op1->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op1
 </code></pre>
 <pre class="mermaid">graph TD
     B((开始)) --&gt;C{判断}
@@ -517,43 +610,46 @@ cond(no)-&gt;sub1(right)-&gt;op1
 
 
 
-<pre><code>graph TD
-    B((开始)) --&gt;C{判断}
-    C --  a=1 --&gt;D[执行语句1]
-    C --  a=2  --&gt;E[执行语句2]
-    C --  a=3 --&gt;F[执行语句3]
-    C -- a=4  --&gt;G[执行语句4]
-    D--&gt; AA((结束))
-    E--&gt; AA
-    F--&gt; AA
-   G--&gt; AA  
-     style B fill:#f9f,stroke:#333,stroke-width:4px
-</code></pre>
+<pre class=" language-txt"><code class="language-txt">​<pre class="mermaid">graph TD
+    B((开始)) -->C{判断}
+    C --  a=1 -->D[执行语句1]
+    C --  a=2  -->E[执行语句2]
+    C --  a=3 -->F[执行语句3]
+    C -- a=4  -->G[执行语句4]
+    D--> AA((结束))
+    E--> AA
+    F--> AA
+   G--> AA  
+     style B fill:#f9f,stroke:#333,stroke-width:4px</pre>
+
+
+
 <pre class="mermaid">sequenceDiagram
     participant Alice
     participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
+    Alice->>John: Hello John, how are you?
     loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
+        John->>John: Fight against hypochondria
     end
-    Note right of John: Rational thoughts <br>prevail...
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!</pre>
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!</pre>
 
 
 
-<pre><code>sequenceDiagram
+```txt
+sequenceDiagram
     participant Alice
     participant Bob
-    Alice-&gt;&gt;John: Hello John, how are you?
+    Alice->>John: Hello John, how are you?
     loop Healthcheck
-        John-&gt;&gt;John: Fight against hypochondria
+        John->>John: Fight against hypochondria
     end
-    Note right of John: Rational thoughts &lt;br/&gt;prevail...
-    John--&gt;&gt;Alice: Great!
-    John-&gt;&gt;Bob: How about you?
-    Bob--&gt;&gt;John: Jolly good!</code></pre>
+    Note right of John: Rational thoughts <br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!</code></pre>
 <pre class="mermaid">gantt
 dateFormat  YYYY-MM-DD
 title Adding GANTT diagram to mermaid
@@ -564,7 +660,7 @@ Active task               :active,  des2, 2014-01-09, 3d
 Future task               :         des3, after des2, 5d
 Future task2               :         des4, after des3, 5d</pre>
 
-<pre><code>gantt
+<pre class=" language-txt"><code class="language-txt">gantt
 dateFormat  YYYY-MM-DD
 title Adding GANTT diagram to mermaid
 
@@ -584,20 +680,20 @@ Class01 : int chimp
 Class01 : int gorilla
 Class08 &lt;--&gt; C2: Cool label<!------><!--|----></pre>
 
-<pre><code>classDiagram
-Class01 &lt;|-- AveryLongClass : Cool
+<pre class=" language-txt"><code class="language-txt">classDiagram
+Class01 <|-- AveryLongClass : Cool
 Class03 *-- Class04
 Class05 o-- Class06
 Class07 .. Class08
-Class09 --&gt; C2 : Where am i?
+Class09 --> C2 : Where am i?
 Class09 --* C3
-Class09 --|&gt; Class07
+Class09 --|> Class07
 Class07 : equals()
 Class07 : Object[] elementData
 Class01 : size()
 Class01 : int chimp
 Class01 : int gorilla
-Class08 &lt;--&gt; C2: Cool label</code></pre>
+Class08 <--> C2: Cool label</code></pre>
 <pre class="mermaid">gitGraph:
 options
 {
@@ -615,7 +711,7 @@ commit
 commit
 merge newbranch</pre>
 
-<pre><code>gitGraph:
+<pre class=" language-txt"><code class="language-txt">gitGraph:
 options
 {
     "nodeSpacing": 150,
@@ -631,7 +727,17 @@ checkout master
 commit
 commit
 merge newbranch</code></pre>
-<p><code>mermaid pie     title Key elements in Product X     "Calcium" : 42.96     "Potassium" : 50.05     "Magnesium" : 10.01     "Iron" :  5 </code><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">#由于渲染问题，请自行将 · 替换为 `
+<pre class="mermaid">pie
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5</pre>
+
+
+
+<p>```txt<br>​</p><pre class="mermaid">pie<br>    title Key elements in Product X<br>    "Calcium" : 42.96<br>    "Potassium" : 50.05<br>    "Magnesium" : 10.01<br>    "Iron" :  5</pre><p></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">#由于渲染问题，请自行将 · 替换为 `
 st=&gt;start: 开始
 e=&gt;end: 结束
 op=&gt;operation: 我的操作
@@ -639,7 +745,14 @@ cond=&gt;condition: 确认？
 
 st-&gt;op-&gt;cond
 cond(yes)-&gt;e
-cond(no)-&gt;op</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=&gt;start: Start:&gt;http://www.google.com[blank]
+cond(no)-&gt;op</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=&gt;start: 开始
+e=&gt;end: 结束
+op=&gt;operation: 我的操作
+cond=&gt;condition: 确认？
+
+st-&gt;op-&gt;cond
+cond(yes)-&gt;e
+cond(no)-&gt;op</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=&gt;start: Start:&gt;http://www.google.com[blank]
 e=&gt;end:&gt;http://www.google.com
 op1=&gt;operation: My Operation
 sub1=&gt;subroutine: My Subroutine
@@ -649,8 +762,7 @@ io=&gt;inputoutput: catch something...
 
 st-&gt;op1-&gt;cond
 cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -1044,6 +1156,100 @@ cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-1-options" st
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -1073,7 +1279,7 @@ cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-1-options" st
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.1k</span>&nbsp;字
+                class="white-color">63k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Zigbee学习一, 梵星">
+    <meta name="keywords" content="Zigbee-GPIO编程(一), 梵星">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Zigbee学习一 | 梵星</title>
+    <title>Zigbee-GPIO编程(一) | 梵星</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -377,12 +377,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Crowm7/cdn/source/medias/featureimages/30.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Zigbee学习一</h1>
+                    <h1 class="description center-align post-title">Zigbee-GPIO编程(一)</h1>
                 </div>
             </div>
         </div>
@@ -392,10 +392,104 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -436,14 +530,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-18
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5
+                    632
                 </div>
                 
 
@@ -465,8 +559,89 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>ccd77a0a9ab39755ee22e124f7c43639808d2dd16720aa6dc30632de02d1a04a</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+                <h2 id="一-基本知识"><a href="#一-基本知识" class="headerlink" title="一. 基本知识"></a>一. 基本知识</h2><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/math/image-20210329211907489.png" alt="image-20210329211907489" style="zoom:80%;">
+
+<h3 id="一-管脚"><a href="#一-管脚" class="headerlink" title="一. 管脚"></a>一. 管脚</h3><ol>
+<li><p>21个管脚分成了3组</p>
+<p>（1）P0组：8个管脚分别是P0_0——-P0_7；</p>
+<p>（2）P1组：8个管脚分别是P1_0——-P1_7；</p>
+<p>（3）P2组：5个管脚分别是P2_0——-P2_4</p>
+</li>
+<li><p>GPIO口用作普通IO口的应用场合<br>（1）外部设备所要求的通信速率较低低；<br>（2）通信协议简单，例如和发光二极管、按键、继电器等简单设备的通信</p>
+</li>
+</ol>
+<h4 id="二-SFR寄存器"><a href="#二-SFR寄存器" class="headerlink" title="二.SFR寄存器"></a>二.SFR寄存器</h4><p><strong>一个再复杂的IO接口电路面向CPU的一面都是一组特殊功能寄存器SFR</strong></p>
+<p>普通的输入、输出管脚的编程，主要涉及如下几个sfr（8位）:</p>
+<p>​        PxSEL:每位所对应的管脚时普通IO还是外围设备IO;</p>
+<p>​        Px: 每位的值和对应管脚的电平一致；</p>
+<p>​        PxDIR:每位对应管脚是输入还是输出；</p>
+<p>​        PxINP:管脚拉电阻选择</p>
+<p>​        这里x可以为0，1，2</p>
+<h3 id="三-编程步骤"><a href="#三-编程步骤" class="headerlink" title="三. 编程步骤"></a>三. 编程步骤</h3><h4 id="管脚设置"><a href="#管脚设置" class="headerlink" title="管脚设置"></a>管脚设置</h4><ol>
+<li><p>普通IO”还是“片上外设”，设置<strong>PxSEL</strong>,选择管脚功能；</p>
+<pre><code>        0—--普通IO(默认值)，1—--外设</code></pre>
+<pre class=" language-txt"><code class="language-txt">                                        外设
+单片机的外设可分为两类：1.内部外设;  2.外设；
+
+1.单片机内部的外设一般包括：串口控制模块，SPI模块，I2C模块，A/D模块，PWM模块，CAN模块，EEPROM，比较器模块，等等，它们都集成在单片机内部，有相对应的内部控制寄存器，可通过单片机指令直接控制。
+
+2.外设指的是单片机外部的外围功能模块，比如键盘控制芯片，液晶，A/D转换芯片，等等。外设可通过单片机的I/O，SPI，I2C等总线控制。</code></pre>
+</li>
+</ol>
+<ol start="2">
+<li><p>“输入”还是“输出”设置<strong>PxDIR</strong>,选择管脚方向；</p>
+<pre><code>        0-输入，1-输出。</code></pre>
+</li>
+<li><p>如果“输入”模式，设置该IO口 “上/下拉输入”模式, “三态输入”模式，设置<strong>Px</strong>为管脚的初始状态；</p>
+<pre><code>        0-上/下拉输入，1-三态输入。</code></pre>
+</li>
+<li><p>如果是配置为“上/下拉输入”，还需要选择到底是“上拉输入”还是“下拉输入”。<br>P2INP的7、6、5三位依次决定P2、P1、P0组整体上下拉：0-上拉输入，1-下拉输入；</p>
+<p><strong>所有IO上电默认为：普通IO、输入、上拉。</strong></p>
+</li>
+</ol>
+<h2 id="二-GPIO编程"><a href="#二-GPIO编程" class="headerlink" title="二.GPIO编程"></a>二.GPIO编程</h2><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/math/image-20210329214411782.png" alt="image-20210329214411782" style="zoom:67%;">
+
+<pre class=" language-C"><code class="language-C">P0: 0x80
+P1: 0x90
+P2: 0xA0
+都可被位寻址
+---------------------------
+P0SEL:0xF3
+P1SEL:0XF4
+P2SEL:0xF5
+---------------------------
+P0DIR: 0xFD
+P1DIR: 0xFE
+P2DIR: 0xFF
+---------------------------
+P0INP: 0x8F
+P1INP: 0xF6
+P2INP: 0xF7</code></pre>
+<h2 id="三-编程练习"><a href="#三-编程练习" class="headerlink" title="三.编程练习"></a>三.编程练习</h2><img src="https://zfxpicture.oss-cn-beijing.aliyuncs.com/math/image-20210329214738257.png" alt="image-20210329214738257" style="zoom: 67%;">
+
+<pre class=" language-C"><code class="language-C">#define LED1 P1_0       //定义P1.0口为LED1控制端
+#define LED2 P1_1       //定义P1.1口为LED2控制端
+#define LED3 P1_4       //定义P1.4口为LED3控制端
+
+void InitLed(void)
+{
+    P1DIR |= (1<<0) | (1<<1) | (1<<4) ; //P1DIR |= 0x13;   P1.0、P1.1、P1.4定义为输出
+    LedOnOrOff(1);      //使所有LED灯默认为熄灭状态
+}
+
+void main(void)
+{
+  InitLed();
+  while(1)
+    {  
+        LED1 = !LED1;        
+        DelayMS(200);         
+        LED2 = !LED2;         
+        DelayMS(200);            
+        LED3 = !LED3;        
+        DelayMS(200);     
+  }</code></pre>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -856,6 +1031,100 @@
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -885,7 +1154,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.1k</span>&nbsp;字
+                class="white-color">63k</span>&nbsp;字
             
             
             
