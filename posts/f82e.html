@@ -542,14 +542,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    738
                 </div>
                 
 
@@ -573,17 +573,22 @@
             <div id="articleContent">
                 <pre class=" language-flow"><code class="language-flow"><div id="flowchart-0" class="flow-chart"></div>
 </code></pre>
-<pre class=" language-txt"><code class="language-txt">​<div id="flowchart-1" class="flow-chart"></div>
+<pre class=" language-txt"><code class="language-txt">flow
+
+st=>start: 开始
+e=>end: 结束
+op=>operation: 我的操作
+cond=>condition: 确认？
+
+st->op->cond
+cond(yes)->e
+cond(no)->op</code></pre>
+<div id="flowchart-1" class="flow-chart"></div>
 
 
 
+<pre class=" language-txt"><code class="language-txt">flow
 
-
-<div id="flowchart-2" class="flow-chart"></div>
-
-
-
-```txt
 st=>start: Start:>http://www.google.com[blank]
 e=>end:>http://www.google.com
 op1=>operation: My Operation
@@ -610,7 +615,9 @@ cond(no)->sub1(right)->op1
 
 
 
-<pre class=" language-txt"><code class="language-txt">​<pre class="mermaid">graph TD
+<pre class=" language-txt"><code class="language-txt">mermaid
+
+graph TD
     B((开始)) -->C{判断}
     C --  a=1 -->D[执行语句1]
     C --  a=2  -->E[执行语句2]
@@ -620,25 +627,24 @@ cond(no)->sub1(right)->op1
     E--> AA
     F--> AA
    G--> AA  
-     style B fill:#f9f,stroke:#333,stroke-width:4px</pre>
-
-
-
+     style B fill:#f9f,stroke:#333,stroke-width:4px
+</code></pre>
 <pre class="mermaid">sequenceDiagram
     participant Alice
     participant Bob
-    Alice->>John: Hello John, how are you?
+    Alice-&gt;&gt;John: Hello John, how are you?
     loop Healthcheck
-        John->>John: Fight against hypochondria
+        John-&gt;&gt;John: Fight against hypochondria
     end
-    Note right of John: Rational thoughts <br/>prevail...
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!</pre>
+    Note right of John: Rational thoughts <br>prevail...
+    John--&gt;&gt;Alice: Great!
+    John-&gt;&gt;Bob: How about you?
+    Bob--&gt;&gt;John: Jolly good!</pre>
 
 
 
-```txt
+<pre class=" language-txt"><code class="language-txt">mermaid
+
 sequenceDiagram
     participant Alice
     participant Bob
@@ -660,7 +666,9 @@ Active task               :active,  des2, 2014-01-09, 3d
 Future task               :         des3, after des2, 5d
 Future task2               :         des4, after des3, 5d</pre>
 
-<pre class=" language-txt"><code class="language-txt">gantt
+<pre class=" language-txt"><code class="language-txt">mermaid
+
+gantt
 dateFormat  YYYY-MM-DD
 title Adding GANTT diagram to mermaid
 
@@ -680,7 +688,9 @@ Class01 : int chimp
 Class01 : int gorilla
 Class08 &lt;--&gt; C2: Cool label<!------><!--|----></pre>
 
-<pre class=" language-txt"><code class="language-txt">classDiagram
+<pre class=" language-txt"><code class="language-txt">mermaid
+
+classDiagram
 Class01 <|-- AveryLongClass : Cool
 Class03 *-- Class04
 Class05 o-- Class06
@@ -711,7 +721,9 @@ commit
 commit
 merge newbranch</pre>
 
-<pre class=" language-txt"><code class="language-txt">gitGraph:
+<pre class=" language-txt"><code class="language-txt">mermaid
+
+gitGraph:
 options
 {
     "nodeSpacing": 150,
@@ -736,7 +748,14 @@ merge newbranch</code></pre>
 
 
 
-<p>```txt<br>​</p><pre class="mermaid">pie<br>    title Key elements in Product X<br>    "Calcium" : 42.96<br>    "Potassium" : 50.05<br>    "Magnesium" : 10.01<br>    "Iron" :  5</pre><p></p>
+<pre class=" language-txt"><code class="language-txt">mermaid
+
+pie
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5</code></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">#由于渲染问题，请自行将 · 替换为 `
 st=&gt;start: 开始
 e=&gt;end: 结束
@@ -745,14 +764,7 @@ cond=&gt;condition: 确认？
 
 st-&gt;op-&gt;cond
 cond(yes)-&gt;e
-cond(no)-&gt;op</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=&gt;start: 开始
-e=&gt;end: 结束
-op=&gt;operation: 我的操作
-cond=&gt;condition: 确认？
-
-st-&gt;op-&gt;cond
-cond(yes)-&gt;e
-cond(no)-&gt;op</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">st=&gt;start: Start:&gt;http://www.google.com[blank]
+cond(no)-&gt;op</textarea><textarea id="flowchart-0-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=&gt;start: Start:&gt;http://www.google.com[blank]
 e=&gt;end:&gt;http://www.google.com
 op1=&gt;operation: My Operation
 sub1=&gt;subroutine: My Subroutine
@@ -762,7 +774,7 @@ io=&gt;inputoutput: catch something...
 
 st-&gt;op1-&gt;cond
 cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-2-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-1-options" style="display: none">{"theme":"simple","scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -1279,7 +1291,7 @@ cond(no)-&gt;sub1(right)-&gt;op1</textarea><textarea id="flowchart-2-options" st
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63k</span>&nbsp;字
+                class="white-color">70.1k</span>&nbsp;字
             
             
             
